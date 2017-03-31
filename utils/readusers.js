@@ -1,19 +1,17 @@
 const fs = require('fs');
 
-function readUsers (file) {
-  return new Promise((resolve, reject) => {
+function readUsers (file, cb) {
     fs.readFile(file, 'utf8', (err, data) => {
       if (err) {
-        return reject(err);
+        return cb(err);
       }
       try {
         const users = JSON.parse(data);
-        return resolve(users);
+        return cb(null, users);
       } catch (exc) {
-        return reject(exc);
+        return cb(exc);
       }
     });
-  });
 }
 
 module.exports = readUsers;
