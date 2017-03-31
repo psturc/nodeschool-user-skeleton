@@ -12,5 +12,8 @@
   "description": "",
   "devDependencies": {
     "mocha": "^3.2.0"
+  },
+  "dependencies": {
+    "pouchdb": "^6.1.2"
   }
 }
