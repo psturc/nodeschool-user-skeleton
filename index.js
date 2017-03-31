@@ -1,7 +1,8 @@
 const readUsers = require('./utils/readusers.js');
 
-function serveUsers (config) {
-  readUsers(config.file, (err, users) => {
+async function serveUsers (config) {
+  await readUsers(config.file)
+    .then(function(err, res) {
     if (err) {
       console.log(err);
       return;
