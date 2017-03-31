@@ -1,12 +1,8 @@
 const readUsers = require('./utils/readusers.js');
 
-async function serveUsers (config) {
-  await readUsers(config.file)
-    .then(function(err, res) {
-    if (err) {
-      console.log(err);
-      return;
-    }
+function serveUsers (config) {
+  readUsers(config.file)
+    .then(function(res) {
     const http = require('http');
     const server = http.createServer((req, res) => {
       res.statusCode = 200;
